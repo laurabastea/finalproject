@@ -1,0 +1,15 @@
+version: "3"
+services:
+    drupal:
+        image: laurabastea/drupal
+        ports: 
+            - "80:80"
+        links:
+            - database       
+        restart: unless-stopped 
+    database:
+        image: laurabastea/postgres
+        ports:
+            - "5432"     
+            - "5432:5432"
+        restart: unless-stopped
